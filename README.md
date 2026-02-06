@@ -1,5 +1,21 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Business Setup - OPEN SEA TCG
+
+### Completed
+- [x] **California Seller's Permit (CDTFA)** - Submitted 02/05/2026
+  - Business Type: Individual/Sole Proprietor (Single-member LLC)
+  - DBA: OPEN SEA TCG
+  - NAICS Code: 459120 (Hobby, Toy, and Game Retailers)
+  - Sales Channels: TCGPlayer, eBay, Facebook Marketplace
+  - Domain: openseatcg.com
+
+### Pending
+- [ ] Domain setup (openseatcg.com)
+- [ ] TCGPlayer seller account
+- [ ] eBay seller account
+- [ ] Inventory sourcing / distributor account (GTS Distribution listed)
+
 ## Getting Started
 
 First, run the development server:
