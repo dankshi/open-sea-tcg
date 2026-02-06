@@ -1,74 +1,135 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
-  return (
-    <div className="relative min-h-screen bg-black">
-      {/* Noise overlay */}
-      <div className="noise-overlay" />
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  return (
+    <div className="relative min-h-screen bg-gradient-to-b from-sky-100 via-sky-50 to-white">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-40 border-b border-zinc-800/50 bg-black/80 backdrop-blur-xl">
-        <div className="mx-auto max-w-6xl px-6 py-4">
+      <nav className="fixed top-0 left-0 right-0 z-40 border-b border-sky-200/50 bg-white/70 backdrop-blur-xl">
+        <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600">
-                <span className="text-lg font-bold">OS</span>
+            <Link href="/" className="flex items-center gap-2 sm:gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500 to-blue-600 sm:h-10 sm:w-10">
+                <span className="text-base font-bold text-white sm:text-lg">OS</span>
               </div>
-              <span className="text-lg font-semibold tracking-tight">
+              <span className="text-base font-semibold tracking-tight text-sky-950 sm:text-lg">
                 OPEN SEA TCG
               </span>
             </Link>
+
+            {/* Desktop navigation */}
             <div className="hidden items-center gap-8 md:flex">
               <Link
                 href="#about"
-                className="text-sm text-zinc-400 transition-colors hover:text-white"
+                className="text-sm text-sky-700 transition-colors hover:text-sky-950"
               >
                 About
               </Link>
               <Link
                 href="#products"
-                className="text-sm text-zinc-400 transition-colors hover:text-white"
+                className="text-sm text-sky-700 transition-colors hover:text-sky-950"
               >
                 Products
               </Link>
               <Link
                 href="#contact"
-                className="text-sm text-zinc-400 transition-colors hover:text-white"
+                className="text-sm text-sky-700 transition-colors hover:text-sky-950"
               >
                 Contact
               </Link>
             </div>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-sky-700 transition-colors hover:bg-sky-100 hover:text-sky-950 md:hidden"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
           </div>
+
+          {/* Mobile menu */}
+          {mobileMenuOpen && (
+            <div className="mt-4 border-t border-sky-200 pt-4 md:hidden">
+              <div className="flex flex-col gap-4">
+                <Link
+                  href="#about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 text-base text-sky-700 transition-colors hover:text-sky-950"
+                >
+                  About
+                </Link>
+                <Link
+                  href="#products"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 text-base text-sky-700 transition-colors hover:text-sky-950"
+                >
+                  Products
+                </Link>
+                <Link
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 text-base text-sky-700 transition-colors hover:text-sky-950"
+                >
+                  Contact
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative flex min-h-screen items-center justify-center px-6">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 via-transparent to-transparent" />
-        <div className="absolute top-1/4 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl" />
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 sm:px-6">
+        {/* Sky gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-sky-200 via-sky-100 to-white" />
+
+        {/* Decorative clouds */}
+        <div className="cloud absolute top-20 left-[10%] h-16 w-32 rounded-full bg-white/80 blur-sm sm:h-20 sm:w-40" />
+        <div className="cloud-slow absolute top-32 right-[15%] h-12 w-24 rounded-full bg-white/70 blur-sm sm:h-16 sm:w-32" />
+        <div className="cloud absolute top-40 left-[25%] h-10 w-20 rounded-full bg-white/60 blur-sm sm:h-14 sm:w-28" />
+        <div className="cloud-slow absolute top-24 right-[30%] h-8 w-16 rounded-full bg-white/50 blur-sm sm:h-12 sm:w-24" />
+
+        {/* Sun glow */}
+        <div className="absolute top-10 right-[20%] h-32 w-32 rounded-full bg-amber-200/30 blur-3xl sm:h-48 sm:w-48" />
+
+        {/* Ocean horizon hint */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sky-200/50 to-transparent" />
 
         <div className="relative z-10 mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/50 px-4 py-2 text-sm text-zinc-400">
-            <span className="h-2 w-2 rounded-full bg-green-500" />
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-sky-300 bg-white/80 px-3 py-1.5 text-xs text-sky-700 shadow-sm backdrop-blur-sm sm:mb-6 sm:px-4 sm:py-2 sm:text-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 sm:h-2 sm:w-2" />
             Authorized TCG Retailer
           </div>
 
-          <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight md:text-7xl">
+          <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight text-sky-950 sm:mb-6 sm:text-5xl md:text-7xl">
             Premium Sealed
             <br />
             <span className="gradient-text">TCG Products</span>
           </h1>
 
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-zinc-400 md:text-xl">
+          <p className="mx-auto mb-8 max-w-2xl text-base text-sky-800/80 sm:mb-10 sm:text-lg md:text-xl">
             Specializing in One Piece, Pokémon, and premium trading card games.
             Trusted source for collectors and retailers seeking authentic sealed products.
           </p>
 
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
             <Link
               href="#contact"
-              className="group relative inline-flex h-12 items-center justify-center gap-2 overflow-hidden rounded-full bg-white px-8 font-medium text-black transition-transform hover:scale-105"
+              className="group relative inline-flex h-11 w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-6 font-medium text-white shadow-lg shadow-sky-500/25 transition-transform hover:scale-105 sm:h-12 sm:w-auto sm:px-8"
             >
               Get In Touch
               <svg
@@ -87,44 +148,44 @@ export default function Home() {
             </Link>
             <Link
               href="#products"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-zinc-700 px-8 font-medium text-white transition-colors hover:bg-zinc-900"
+              className="inline-flex h-11 w-full items-center justify-center rounded-full border border-sky-300 bg-white/80 px-6 font-medium text-sky-700 shadow-sm backdrop-blur-sm transition-colors hover:bg-white hover:text-sky-900 sm:h-12 sm:w-auto sm:px-8"
             >
               View Products
             </Link>
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
-          <div className="flex h-10 w-6 items-start justify-center rounded-full border border-zinc-700 p-2">
-            <div className="h-2 w-1 animate-bounce rounded-full bg-zinc-400" />
+        {/* Scroll indicator - hidden on very small screens */}
+        <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 sm:bottom-10 sm:block">
+          <div className="flex h-10 w-6 items-start justify-center rounded-full border border-sky-300 bg-white/50 p-2">
+            <div className="h-2 w-1 animate-bounce rounded-full bg-sky-500" />
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="relative border-t border-zinc-800/50 py-32">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-16 md:grid-cols-2 md:items-center">
+      <section id="about" className="relative bg-white py-16 sm:py-24 md:py-32">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="grid gap-10 md:grid-cols-2 md:items-center md:gap-16">
             <div>
-              <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-sky-950 sm:mb-6 sm:text-4xl md:text-5xl">
                 Built for the
                 <br />
                 <span className="gradient-text">New Era</span>
               </h2>
-              <p className="mb-6 text-lg text-zinc-400">
+              <p className="mb-4 text-base text-sky-800/70 sm:mb-6 sm:text-lg">
                 OPEN SEA TCG is a dedicated TCG retailer focused on
                 bringing authentic, sealed products to collectors and businesses
                 across the nation.
               </p>
-              <p className="text-lg text-zinc-400">
+              <p className="text-base text-sky-800/70 sm:text-lg">
                 We work directly with authorized distributors to ensure every
                 product we offer is genuine, sealed, and ready for your
                 collection or resale inventory.
               </p>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
               {[
                 {
                   title: "Sealed Products",
@@ -149,11 +210,11 @@ export default function Home() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="card-hover rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6"
+                  className="card-hover rounded-xl border border-sky-200 bg-gradient-to-br from-sky-50 to-white p-4 shadow-sm sm:rounded-2xl sm:p-6"
                 >
-                  <div className="mb-3 text-2xl">{item.icon}</div>
-                  <h3 className="mb-2 font-semibold">{item.title}</h3>
-                  <p className="text-sm text-zinc-400">{item.description}</p>
+                  <div className="mb-2 text-xl sm:mb-3 sm:text-2xl">{item.icon}</div>
+                  <h3 className="mb-1 text-sm font-semibold text-sky-950 sm:mb-2 sm:text-base">{item.title}</h3>
+                  <p className="text-xs text-sky-700/70 sm:text-sm">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -162,55 +223,55 @@ export default function Home() {
       </section>
 
       {/* Products Section */}
-      <section id="products" className="relative border-t border-zinc-800/50 py-32">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
+      <section id="products" className="relative bg-gradient-to-b from-white via-sky-50 to-sky-100 py-16 sm:py-24 md:py-32">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mb-10 text-center sm:mb-16">
+            <h2 className="mb-3 text-3xl font-bold tracking-tight text-sky-950 sm:mb-4 sm:text-4xl md:text-5xl">
               Our Focus
             </h2>
-            <p className="mx-auto max-w-2xl text-lg text-zinc-400">
+            <p className="mx-auto max-w-2xl text-base text-sky-800/70 sm:text-lg">
               We specialize in premium TCG products with strong collector demand
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
             {[
               {
                 name: "One Piece TCG",
                 description:
                   "Bandai's flagship card game. Booster boxes, starter decks, and case quantities.",
                 status: "Primary Focus",
-                gradient: "from-red-500 to-orange-500",
+                gradient: "from-rose-400 to-orange-400",
               },
               {
                 name: "Pokémon TCG",
                 description:
                   "The world's most popular trading card game. Sealed booster boxes and ETBs.",
                 status: "Available",
-                gradient: "from-yellow-500 to-amber-500",
+                gradient: "from-amber-400 to-yellow-400",
               },
               {
                 name: "Other Bandai TCG",
                 description:
                   "Dragon Ball Super, Digimon, and other Bandai card games.",
                 status: "Available",
-                gradient: "from-blue-500 to-purple-500",
+                gradient: "from-sky-400 to-blue-500",
               },
             ].map((product) => (
               <div
                 key={product.name}
-                className="card-hover group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/50"
+                className="card-hover group relative overflow-hidden rounded-xl border border-sky-200 bg-white shadow-sm sm:rounded-2xl"
               >
                 {/* Gradient bar */}
                 <div
-                  className={`h-1 w-full bg-gradient-to-r ${product.gradient}`}
+                  className={`h-1.5 w-full bg-gradient-to-r ${product.gradient}`}
                 />
-                <div className="p-8">
-                  <div className="mb-4 inline-flex rounded-full bg-zinc-800 px-3 py-1 text-xs text-zinc-300">
+                <div className="p-5 sm:p-6 md:p-8">
+                  <div className="mb-3 inline-flex rounded-full bg-sky-100 px-3 py-1 text-xs font-medium text-sky-700 sm:mb-4">
                     {product.status}
                   </div>
-                  <h3 className="mb-3 text-2xl font-bold">{product.name}</h3>
-                  <p className="text-zinc-400">{product.description}</p>
+                  <h3 className="mb-2 text-xl font-bold text-sky-950 sm:mb-3 sm:text-2xl">{product.name}</h3>
+                  <p className="text-sm text-sky-800/70 sm:text-base">{product.description}</p>
                 </div>
               </div>
             ))}
@@ -219,48 +280,51 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative border-t border-zinc-800/50 py-32">
-        <div className="mx-auto max-w-6xl px-6">
+      <section id="contact" className="relative bg-sky-100 py-16 sm:py-24 md:py-32">
+        {/* Decorative wave at top */}
+        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-sky-100 to-transparent" />
+
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
+            <h2 className="mb-3 text-3xl font-bold tracking-tight text-sky-950 sm:mb-4 sm:text-4xl md:text-5xl">
               Let&apos;s Connect
             </h2>
-            <p className="mb-10 text-lg text-zinc-400">
+            <p className="mb-8 text-base text-sky-800/70 sm:mb-10 sm:text-lg">
               Interested in wholesale orders or have questions? Reach out and
               we&apos;ll get back to you promptly.
             </p>
 
-            <div className="border-glow rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8">
-              <div className="space-y-6">
+            <div className="border-glow rounded-xl border border-sky-200 bg-white p-5 shadow-lg shadow-sky-200/50 sm:rounded-2xl sm:p-8">
+              <div className="space-y-5 sm:space-y-6">
                 <div className="text-left">
-                  <label className="mb-2 block text-sm text-zinc-400">
+                  <label className="mb-1.5 block text-sm text-sky-600 sm:mb-2">
                     Email
                   </label>
                   <a
                     href="mailto:contact@openseatcg.com"
-                    className="text-lg font-medium transition-colors hover:text-blue-400"
+                    className="break-all text-base font-medium text-sky-950 transition-colors hover:text-sky-600 sm:text-lg"
                   >
                     contact@openseatcg.com
                   </a>
                 </div>
 
-                <div className="border-t border-zinc-800 pt-6 text-left">
-                  <label className="mb-2 block text-sm text-zinc-400">
+                <div className="border-t border-sky-100 pt-5 text-left sm:pt-6">
+                  <label className="mb-1.5 block text-sm text-sky-600 sm:mb-2">
                     Business Hours
                   </label>
-                  <p className="text-lg">Monday - Friday, 9AM - 6PM PST</p>
+                  <p className="text-base text-sky-950 sm:text-lg">Monday - Friday, 9AM - 6PM PST</p>
                 </div>
 
-                <div className="border-t border-zinc-800 pt-6 text-left">
-                  <label className="mb-2 block text-sm text-zinc-400">
+                <div className="border-t border-sky-100 pt-5 text-left sm:pt-6">
+                  <label className="mb-1.5 block text-sm text-sky-600 sm:mb-2">
                     Location
                   </label>
-                  <p className="text-lg">San Jose, California</p>
+                  <p className="text-base text-sky-950 sm:text-lg">San Jose, California</p>
                 </div>
               </div>
             </div>
 
-            <p className="mt-8 text-sm text-zinc-500">
+            <p className="mt-6 text-sm text-sky-700/60 sm:mt-8">
               We respond to all inquiries within 24 hours
             </p>
           </div>
@@ -268,38 +332,38 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-800/50 py-12">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600">
-                <span className="text-sm font-bold">OS</span>
+      <footer className="border-t border-sky-200 bg-white py-8 sm:py-12">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="flex flex-col items-center justify-between gap-5 text-center sm:gap-6 md:flex-row md:text-left">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500 to-blue-600 sm:h-8 sm:w-8">
+                <span className="text-xs font-bold text-white sm:text-sm">OS</span>
               </div>
-              <span className="font-semibold">OPEN SEA TCG</span>
+              <span className="text-sm font-semibold text-sky-950 sm:text-base">OPEN SEA TCG</span>
             </div>
 
-            <div className="flex items-center gap-6">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
               <Link
                 href="#about"
-                className="text-sm text-zinc-400 transition-colors hover:text-white"
+                className="text-sm text-sky-700 transition-colors hover:text-sky-950"
               >
                 About
               </Link>
               <Link
                 href="#products"
-                className="text-sm text-zinc-400 transition-colors hover:text-white"
+                className="text-sm text-sky-700 transition-colors hover:text-sky-950"
               >
                 Products
               </Link>
               <Link
                 href="#contact"
-                className="text-sm text-zinc-400 transition-colors hover:text-white"
+                className="text-sm text-sky-700 transition-colors hover:text-sky-950"
               >
                 Contact
               </Link>
             </div>
 
-            <p className="text-sm text-zinc-500">
+            <p className="text-xs text-sky-600/70 sm:text-sm">
               © {new Date().getFullYear()} OPEN SEA TCG. All rights reserved.
             </p>
           </div>
