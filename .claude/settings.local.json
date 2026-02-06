@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nRebrand to OPEN SEA TCG\n\n- Update site metadata, nav, and footer with new branding\n- Change logo initials from NW to OS\n- Update email to contact@openseatcg.com\n- Add setup guide and business documentation\n- Enhanced landing page with hero, about, products, and contact sections\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(gh repo create:*)",
+      "Bash(tasklist:*)",
+      "Bash(findstr:*)",
+      "Bash(del \"c:\\\\Users\\\\Henry\\\\Desktop\\\\new-world-collectibles\\\\.next\\\\dev\\\\lock\")",
+      "Bash(tree:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nRemove unused Supabase files to fix build\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push)"
+    ]
+  }
+}
