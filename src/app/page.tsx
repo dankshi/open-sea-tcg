@@ -494,7 +494,7 @@ export default function Home() {
                   </label>
                   <a
                     href="tel:+16692009430"
-                    className="text-base font-medium text-sky-950 transition-colors hover:text-sky-600 sm:text-lg"
+                    className="text-base font-medium text-sky-600 underline transition-colors hover:text-sky-800 sm:text-lg"
                   >
                     (669) 200-9430
                   </a>
