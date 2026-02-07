@@ -9,15 +9,37 @@ export default function Home() {
   const [phoneCopied, setPhoneCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("contact@openseatcg.com");
-    setEmailCopied(true);
-    setTimeout(() => setEmailCopied(false), 2000);
+    const text = "contact@openseatcg.com";
+    navigator.clipboard.writeText(text).then(() => {
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    }).catch(() => {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      textArea.remove();
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    });
   };
 
   const copyPhone = () => {
-    navigator.clipboard.writeText("(669) 200-9430");
-    setPhoneCopied(true);
-    setTimeout(() => setPhoneCopied(false), 2000);
+    const text = "(669) 200-9430";
+    navigator.clipboard.writeText(text).then(() => {
+      setPhoneCopied(true);
+      setTimeout(() => setPhoneCopied(false), 2000);
+    }).catch(() => {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      textArea.remove();
+      setPhoneCopied(true);
+      setTimeout(() => setPhoneCopied(false), 2000);
+    });
   };
 
   return (
@@ -478,9 +500,9 @@ export default function Home() {
                       contact@openseatcg.com
                     </a>
                     <button
+                      type="button"
                       onClick={copyEmail}
-                      className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-100 text-sky-600 transition-colors hover:bg-sky-200 hover:text-sky-800"
-                      title="Copy email"
+                      className="relative z-50 ml-2 flex h-8 w-8 items-center justify-center rounded bg-sky-500 text-white hover:bg-sky-600"
                     >
                       {emailCopied ? (
                         <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -507,9 +529,9 @@ export default function Home() {
                       (669) 200-9430
                     </a>
                     <button
+                      type="button"
                       onClick={copyPhone}
-                      className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-100 text-sky-600 transition-colors hover:bg-sky-200 hover:text-sky-800"
-                      title="Copy phone"
+                      className="relative z-50 ml-2 flex h-8 w-8 items-center justify-center rounded bg-sky-500 text-white hover:bg-sky-600"
                     >
                       {phoneCopied ? (
                         <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
