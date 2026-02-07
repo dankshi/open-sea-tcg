@@ -9,7 +9,11 @@
       "Bash(del \"c:\\\\Users\\\\Henry\\\\Desktop\\\\new-world-collectibles\\\\.next\\\\dev\\\\lock\")",
       "Bash(tree:*)",
       "Bash(git commit -m \"$\\(cat <<''EOF''\nRemove unused Supabase files to fix build\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
-      "Bash(git push)"
+      "Bash(git push)",
+      "Bash(npm run build:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd mobile responsiveness and light oceanic theme\n\n- Add mobile hamburger menu with toggle state\n- Improve typography scaling across breakpoints\n- Add intermediate grid breakpoints for tablets\n- Adjust spacing and gaps for mobile screens\n- Transform to light oceanic color palette \\(sky blues, whites\\)\n- Add decorative floating clouds and sun glow in hero\n- Update all sections with consistent ocean-inspired styling\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
