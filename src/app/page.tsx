@@ -493,10 +493,10 @@ export default function Home() {
                     Phone
                   </label>
                   <a
-                    href="tel:+14083551234"
+                    href="tel:+16692009430"
                     className="text-base font-medium text-sky-950 transition-colors hover:text-sky-600 sm:text-lg"
                   >
-                    (408) 355-1234
+                    (669) 200-9430
                   </a>
                 </div>
 
@@ -591,7 +591,7 @@ export default function Home() {
               <h3 className="mb-4 font-semibold text-sky-950">Contact</h3>
               <div className="flex flex-col gap-2 text-sm text-sky-700">
                 <a href="mailto:contact@openseatcg.com" className="transition-colors hover:text-sky-950">contact@openseatcg.com</a>
-                <a href="tel:+14083551234" className="transition-colors hover:text-sky-950">(408) 355-1234</a>
+                <a href="tel:+16692009430" className="transition-colors hover:text-sky-950">(669) 200-9430</a>
                 <span>San Jose, California</span>
               </div>
             </div>
