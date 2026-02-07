@@ -330,25 +330,19 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2 lg:max-w-2xl lg:mx-auto">
             {[
               {
-                name: "OP-10: Royal Blood",
-                date: "Q1 2026",
-                type: "Booster Box",
-                status: "Pre-orders Open",
-              },
-              {
-                name: "OP-11",
-                date: "Q2 2026",
-                type: "Booster Box",
+                name: "EB-03",
+                date: "2026",
+                type: "Extra Booster",
                 status: "Coming Soon",
               },
               {
-                name: "Premium Card Collection",
-                date: "March 2026",
-                type: "Special Set",
-                status: "Pre-orders Open",
+                name: "OP-15",
+                date: "2026",
+                type: "Booster Box",
+                status: "Coming Soon",
               },
             ].map((release) => (
               <div
