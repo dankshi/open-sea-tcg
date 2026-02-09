@@ -77,6 +77,17 @@ export default function Home() {
               >
                 Contact
               </Link>
+              <a
+                href="https://opcardlist.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 px-3 py-1.5 text-xs font-medium text-white transition-transform hover:scale-105"
+              >
+                OP Card List
+                <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
             </div>
 
             {/* Mobile menu button */}
@@ -122,6 +133,18 @@ export default function Home() {
                 >
                   Contact
                 </Link>
+                <a
+                  href="https://opcardlist.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="inline-flex w-fit items-center gap-1.5 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 px-4 py-2 text-sm font-medium text-white"
+                >
+                  OP Card List
+                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
               </div>
             </div>
           )}
@@ -146,9 +169,20 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sky-200/50 to-transparent" />
 
         <div className="relative z-10 mx-auto max-w-4xl text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-sky-300 bg-white/80 px-3 py-1.5 text-xs text-sky-700 shadow-sm backdrop-blur-sm sm:mb-6 sm:px-4 sm:py-2 sm:text-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 sm:h-2 sm:w-2" />
-            Authorized TCG Retailer
+          <div className="mb-4 flex flex-wrap items-center justify-center gap-2 sm:mb-6 sm:gap-3">
+            <div className="inline-flex items-center gap-2 rounded-full border border-sky-300 bg-white/80 px-3 py-1.5 text-xs text-sky-700 shadow-sm backdrop-blur-sm sm:px-4 sm:py-2 sm:text-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 sm:h-2 sm:w-2" />
+              Authorized TCG Retailer
+            </div>
+            <a
+              href="https://opcardlist.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-sky-300 bg-white/80 px-3 py-1.5 text-xs text-sky-700 shadow-sm backdrop-blur-sm transition-colors hover:bg-white sm:px-4 sm:py-2 sm:text-sm"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-rose-500 sm:h-2 sm:w-2" />
+              Creators of opcardlist.com
+            </a>
           </div>
 
           <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight text-sky-950 sm:mb-6 sm:text-5xl md:text-7xl">
@@ -158,8 +192,8 @@ export default function Home() {
           </h1>
 
           <p className="mx-auto mb-8 max-w-2xl text-base text-sky-800/80 sm:mb-10 sm:text-lg md:text-xl">
-            Specializing in One Piece, Pokémon, and premium trading card games.
-            Trusted source for collectors and retailers seeking authentic sealed products.
+            Your trusted source for authentic One Piece TCG sealed products.
+            Serving collectors and retailers nationwide.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
@@ -199,30 +233,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Brands Section */}
+      {/* Why One Piece Section */}
       <section className="relative bg-white py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="mb-8 text-center text-sm font-medium uppercase tracking-wider text-sky-600 sm:mb-10">
-            Authorized Products We Carry
-          </p>
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-8">
-            {[
-              { name: "One Piece", color: "from-red-500 to-orange-500" },
-              { name: "Pokémon", color: "from-yellow-400 to-amber-500" },
-              { name: "Dragon Ball Super", color: "from-orange-500 to-red-600" },
-              { name: "Digimon", color: "from-blue-500 to-purple-600" },
-            ].map((brand) => (
-              <div
-                key={brand.name}
-                className="flex flex-col items-center justify-center rounded-xl border border-sky-100 bg-gradient-to-br from-sky-50 to-white p-4 shadow-sm transition-transform hover:scale-105 sm:p-6"
-              >
-                <div className={`mb-2 h-12 w-12 rounded-full bg-gradient-to-br ${brand.color} flex items-center justify-center sm:mb-3 sm:h-16 sm:w-16`}>
-                  <span className="text-lg font-bold text-white sm:text-xl">{brand.name.charAt(0)}</span>
-                </div>
-                <span className="text-center text-xs font-semibold text-sky-950 sm:text-sm">{brand.name}</span>
-              </div>
-            ))}
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+          <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-red-500 to-orange-500 sm:h-16 sm:w-16">
+            <span className="text-xl font-bold text-white sm:text-2xl">OP</span>
           </div>
+          <h2 className="mb-4 text-2xl font-bold tracking-tight text-sky-950 sm:text-3xl">
+            Why One Piece?
+          </h2>
+          <p className="mb-4 text-base text-sky-800/80 sm:text-lg">
+            We&apos;re not just sellers — we&apos;re die-hard One Piece fans building the ultimate TCG experience.
+          </p>
+          <p className="text-base text-sky-800/70 sm:text-lg">
+            From our <a href="https://opcardlist.com" target="_blank" rel="noopener noreferrer" className="font-medium text-sky-600 underline decoration-sky-300 hover:text-sky-800">card database</a> to
+            authentic sealed products, everything we do is dedicated to the One Piece community.
+            We believe this game deserves world-class tools and trusted retailers — and we&apos;re here to deliver both.
+          </p>
         </div>
       </section>
 
@@ -246,17 +273,33 @@ export default function Home() {
                 product we offer is genuine, sealed, and ready for your
                 collection or resale inventory.
               </p>
-              {/* CA License Badge */}
-              <div className="inline-flex items-center gap-3 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500">
-                  <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+              {/* Badges */}
+              <div className="flex flex-wrap gap-3">
+                <div className="inline-flex items-center gap-3 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500">
+                    <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-emerald-800">CA Licensed Retailer</p>
+                    <p className="text-xs text-emerald-600">CDTFA #247-884128</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-semibold text-emerald-800">CA Licensed Retailer</p>
-                  <p className="text-xs text-emerald-600">CDTFA #247-884128</p>
-                </div>
+                <a
+                  href="https://opcardlist.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 rounded-lg border border-sky-200 bg-sky-50 px-4 py-2 transition-colors hover:bg-sky-100"
+                >
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-rose-500 to-orange-500">
+                    <span className="text-xs font-bold text-white">OP</span>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-sky-800">Our Card Database</p>
+                    <p className="text-xs text-sky-600">opcardlist.com</p>
+                  </div>
+                </a>
               </div>
             </div>
 
@@ -302,34 +345,31 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mb-10 text-center sm:mb-16">
             <h2 className="mb-3 text-3xl font-bold tracking-tight text-sky-950 sm:mb-4 sm:text-4xl md:text-5xl">
-              Our Focus
+              What We Offer
             </h2>
             <p className="mx-auto max-w-2xl text-base text-sky-800/70 sm:text-lg">
-              We specialize in premium TCG products with strong collector demand
+              Factory sealed One Piece TCG products for collectors and retailers
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
+          <div className="grid gap-4 sm:grid-cols-3 sm:gap-6 lg:gap-8">
             {[
               {
-                name: "One Piece TCG",
+                name: "Booster Boxes",
                 description:
-                  "Bandai's flagship card game. Booster boxes, starter decks, and case quantities.",
-                status: "Primary Focus",
+                  "Factory sealed booster boxes with 24 packs each. Perfect for collectors and retailers.",
                 gradient: "from-rose-400 to-orange-400",
               },
               {
-                name: "Pokémon TCG",
+                name: "Starter Decks",
                 description:
-                  "The world's most popular trading card game. Sealed booster boxes and ETBs.",
-                status: "Available",
-                gradient: "from-amber-400 to-yellow-400",
+                  "Ready-to-play starter decks featuring popular characters. Great for new players.",
+                gradient: "from-amber-400 to-orange-400",
               },
               {
-                name: "Other Bandai TCG",
+                name: "Case Quantities",
                 description:
-                  "Dragon Ball Super, Digimon, and other Bandai card games.",
-                status: "Available",
+                  "Bulk orders available for retailers. Competitive pricing on sealed cases.",
                 gradient: "from-sky-400 to-blue-500",
               },
             ].map((product) => (
@@ -342,9 +382,6 @@ export default function Home() {
                   className={`h-1.5 w-full bg-gradient-to-r ${product.gradient}`}
                 />
                 <div className="p-5 sm:p-6 md:p-8">
-                  <div className="mb-3 inline-flex rounded-full bg-sky-100 px-3 py-1 text-xs font-medium text-sky-700 sm:mb-4">
-                    {product.status}
-                  </div>
                   <h3 className="mb-2 text-xl font-bold text-sky-950 sm:mb-3 sm:text-2xl">{product.name}</h3>
                   <p className="text-sm text-sky-800/70 sm:text-base">{product.description}</p>
                 </div>
@@ -582,7 +619,7 @@ export default function Home() {
                 <span className="font-semibold text-sky-950">OPEN SEA TCG</span>
               </div>
               <p className="text-sm text-sky-700">
-                Premium sealed TCG products for collectors and retailers.
+                Premium sealed One Piece TCG products for collectors and retailers.
               </p>
               {/* Social Links */}
               <div className="mt-4 flex gap-3">
@@ -618,17 +655,17 @@ export default function Home() {
                 <Link href="#about" className="text-sm text-sky-700 transition-colors hover:text-sky-950">About</Link>
                 <Link href="#products" className="text-sm text-sky-700 transition-colors hover:text-sky-950">Products</Link>
                 <Link href="#contact" className="text-sm text-sky-700 transition-colors hover:text-sky-950">Contact</Link>
+                <a href="https://opcardlist.com" target="_blank" rel="noopener noreferrer" className="text-sm text-sky-700 transition-colors hover:text-sky-950">OP Card List</a>
               </div>
             </div>
 
             {/* Products */}
             <div>
-              <h3 className="mb-4 font-semibold text-sky-950">Products</h3>
+              <h3 className="mb-4 font-semibold text-sky-950">One Piece TCG</h3>
               <div className="flex flex-col gap-2">
-                <span className="text-sm text-sky-700">One Piece TCG</span>
-                <span className="text-sm text-sky-700">Pokémon TCG</span>
-                <span className="text-sm text-sky-700">Dragon Ball Super</span>
-                <span className="text-sm text-sky-700">Digimon TCG</span>
+                <span className="text-sm text-sky-700">Booster Boxes</span>
+                <span className="text-sm text-sky-700">Starter Decks</span>
+                <span className="text-sm text-sky-700">Case Quantities</span>
               </div>
             </div>
 
